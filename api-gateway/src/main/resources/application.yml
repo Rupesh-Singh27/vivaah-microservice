@@ -1,0 +1,17 @@
+server:
+  port: '9090'
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:      routes:      - id: CATERER-SERVICE
+        uri: lb://CATERER-SERVICE
+        predicates:        - Path=/caterer/**
+      - id: PHOTOGRAPHY-SERVICE
+        uri: lb://PHOTOGRAPHY-SERVICE
+        predicates:
+        - Path=/photography/**
+
+
+
